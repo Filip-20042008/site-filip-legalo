@@ -43,10 +43,22 @@ button { width:100%; padding:15px; background:#2c5364; color:white; border:none;
 .slides { display:flex; transition: transform 0.5s ease-in-out; gap:20px; } /* espace entre les images */
 .slides img { width:100%; max-height:400px; object-fit:cover; border-radius:12px; }
 
-/* Slider buttons */
-.prev, .next { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.5); color:white; border:none; padding:10px; cursor:pointer; border-radius:50%; font-size:18px; z-index:10; }
-.prev { left:10px; }
-.next { right:10px; }
+/* Slider buttons repositionnées */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.3); /* moins intrusif */
+  color: white;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 20px;
+  z-index: 5; /* assure que les flèches sont au-dessus du slider mais pas trop agressives */
+}
+.prev { left: -30px; } /* décalage vers l'extérieur à gauche */
+.next { right: -30px; } /* décalage vers l'extérieur à droite */
 
 /* Footer */
 footer { background:#0f2027; color:white; text-align:center; padding:20px; }
