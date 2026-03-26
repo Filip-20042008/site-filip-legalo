@@ -40,17 +40,18 @@ button { width:100%; padding:15px; background:#2c5364; color:white; border:none;
 
 /* Job slider */
 .slider { max-width:900px; margin:40px auto; position:relative; overflow:hidden; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.05); }
-.slides { display:flex; transition: transform 0.5s ease-in-out; }
-.slides img { width:100%; border-radius:12px; }
+.slides { display:flex; transition: transform 0.5s ease-in-out; gap:20px; } /* espace entre les images */
+.slides img { width:100%; max-height:400px; object-fit:cover; border-radius:12px; }
 
 /* Slider buttons */
-.prev, .next { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.5); color:white; border:none; padding:10px; cursor:pointer; border-radius:50%; font-size:18px; }
+.prev, .next { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.5); color:white; border:none; padding:10px; cursor:pointer; border-radius:50%; font-size:18px; z-index:10; }
 .prev { left:10px; }
 .next { right:10px; }
 
 /* Footer */
 footer { background:#0f2027; color:white; text-align:center; padding:20px; }
 </style>
+
 </head>
 <body>
 
@@ -61,7 +62,7 @@ footer { background:#0f2027; color:white; text-align:center; padding:20px; }
 </div>
 <h1>Filip Le Galo</h1>
 <p id="subtitle">Électricité • Climatisation • Dépannage</p>
-<img src="100_0062.jpg" class="profile-photo" alt="Filip Le Galo">
+<img src="100_0062.JPG" class="profile-photo" alt="Filip Le Galo">
 </header>
 
 <div class="container">
@@ -97,13 +98,13 @@ footer { background:#0f2027; color:white; text-align:center; padding:20px; }
 
 <h2>Travaux réalisés</h2>
 <div class="slider">
-<div class="slides">
-<img src="Tableau.jpg" alt="Travail 1">
-<img src="CLIM.jpg" alt="Travail 2">
-<img src="INCENDIE TABLEAU.jpg" alt="Travail 3">
-</div>
-<button class="prev">&#10094;</button>
-<button class="next">&#10095;</button>
+  <div class="slides">
+    <img src="job1.jpg" alt="Travail 1">
+    <img src="job2.jpg" alt="Travail 2">
+    <img src="job3.jpg" alt="Travail 3">
+  </div>
+  <button class="prev">&#10094;</button>
+  <button class="next">&#10095;</button>
 </div>
 
 <h2>Avis clients</h2>
@@ -143,13 +144,23 @@ form.addEventListener('submit', async function(e){
     document.getElementById('success-message').style.display='block';
 });
 
-// Slider
+// Slider JS
 let slideIndex = 0;
 const slides = document.querySelector('.slides');
 const total = slides.children.length;
-document.querySelector('.next').addEventListener('click', ()=>{ slideIndex = (slideIndex+1)%total; updateSlider(); });
-document.querySelector('.prev').addEventListener('click', ()=>{ slideIndex = (slideIndex-1+total)%total; updateSlider(); });
-function updateSlider(){ slides.style.transform = `translateX(-${slideIndex*100}%)`; }
+
+document.querySelector('.next').addEventListener('click', () => {
+  slideIndex = (slideIndex + 1) % total;
+  updateSlider();
+});
+document.querySelector('.prev').addEventListener('click', () => {
+  slideIndex = (slideIndex - 1 + total) % total;
+  updateSlider();
+});
+
+function updateSlider() {
+  slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+}
 </script>
 
 </body>
