@@ -3,120 +3,211 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Filip Le Galo - Électricité & Climatisation</title>
+
+<meta name="description" content="Électricien et spécialiste climatisation à Mouans-Sartoux et alentours. Installation, dépannage rapide.">
+<meta name="keywords" content="électricien Mouans-Sartoux, climatisation Cannes, dépannage électrique 06">
+<meta name="author" content="Filip Le Galo">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
 <style>
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #f7f9fc;
-    color: #333;
-}
+body { margin:0; font-family:'Poppins',sans-serif; background:#f7f9fc; color:#333; }
+
 header {
-    background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
-    color: white;
-    padding: 60px 20px;
-    text-align: center;
+    background: linear-gradient(120deg,#0f2027,#203a43,#2c5364);
+    color:white;
+    padding:60px 20px;
+    text-align:center;
+    position:relative;
 }
-header h1 { margin: 0; font-size: 2.5em; }
-header p { opacity: 0.9; }
-.profile-photo { 
-    display: block; 
-    max-width: 200px; 
-    margin: 20px auto; 
-    border-radius: 50%; 
-    border: 4px solid #fff; 
+
+header h1 { margin:0; font-size:2.5em; }
+
+.profile-photo {
+    max-width:180px;
+    margin:20px auto;
+    border-radius:50%;
+    border:4px solid white;
 }
-.container { max-width: 1100px; margin: auto; padding: 40px 20px; }
-.services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 20px; }
+
+.lang {
+    position:absolute;
+    top:20px;
+    right:20px;
+}
+
+.lang button {
+    margin:2px;
+    padding:5px 10px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+/* layout */
+.container { max-width:1100px; margin:auto; padding:40px 20px; }
+
+.services {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
 .card {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    transition: 0.3s;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.05);
+    transition:0.3s;
 }
-.card:hover { transform: translateY(-5px); }
-h2 { text-align: center; margin-bottom: 30px; }
-.contact { text-align: center; margin-bottom: 40px; }
-.contact a { display: inline-block; margin: 10px; padding: 12px 20px; border-radius: 30px; text-decoration: none; color: white; }
-.phone { background: #27ae60; }
-.email { background: #2980b9; }
+
+.card:hover { transform:translateY(-8px); }
+
+h2 { text-align:center; margin-bottom:30px; }
+
+/* contact */
+.contact { text-align:center; margin-bottom:40px; }
+
+.contact a {
+    display:inline-block;
+    margin:10px;
+    padding:12px 20px;
+    border-radius:30px;
+    color:white;
+    text-decoration:none;
+}
+
+.phone { background:#27ae60; }
+.email { background:#2980b9; }
+.whatsapp { background:#25D366; }
+
+/* form */
 .form-box {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    max-width: 600px;
-    margin: auto 0 40px 0;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.05);
+    max-width:600px;
+    margin:40px auto;
 }
-input, textarea { width: 100%; margin-bottom: 15px; padding: 12px; border-radius: 8px; border: 1px solid #ddd; }
+
+input, textarea {
+    width:100%;
+    margin-bottom:15px;
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ddd;
+}
+
 button {
-    width: 100%;
-    padding: 15px;
-    background: #2c5364;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
+    width:100%;
+    padding:15px;
+    background:#2c5364;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
 }
-footer { background: #0f2027; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+
+/* floating whatsapp */
+.float {
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    padding:15px;
+    border-radius:50%;
+    font-size:20px;
+    text-decoration:none;
+}
+
+/* footer */
+footer {
+    background:#0f2027;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
 </style>
 </head>
+
 <body>
 
 <header>
-    <h1>Filip Le Galo</h1>
-    <p>Électricité • Climatisation • Dépannage</p>
-    <!-- Photo ajoutée -->
-    <img src="100_062.jpg" alt="Filip Le Galo" class="profile-photo">
+<div class="lang">
+    <button onclick="setLang('fr')">FR</button>
+    <button onclick="setLang('en')">EN</button>
+</div>
+
+<h1>Filip Le Galo</h1>
+<p id="subtitle">Électricité • Climatisation • Dépannage</p>
+
+<img src="100_062.jpg" class="profile-photo">
 </header>
 
 <div class="container">
+
 <h2>Services</h2>
 <div class="services">
-    <div class="card">
-        <h3>Électricité</h3>
-        <p>Installation, rénovation et dépannage.</p>
-    </div>
-    <div class="card">
-        <h3>Climatisation</h3>
-        <p>Installation, entretien et dépannage.</p>
-    </div>
-    <div class="card">
-        <h3>Intervention rapide</h3>
-        <p>Dépannage rapide à domicile.</p>
-    </div>
+<div class="card"><h3>Électricité</h3><p>Installation et dépannage.</p></div>
+<div class="card"><h3>Climatisation</h3><p>Installation et entretien.</p></div>
+<div class="card"><h3>Intervention rapide</h3><p>Disponible rapidement.</p></div>
 </div>
 
 <h2>Contact</h2>
 <div class="contact">
-    <a class="phone" href="tel:+33652551589">📞 +33 6 52 55 15 89</a>
-    <a class="email" href="mailto:fililegalo@gmail.com">✉️ Envoyer un email</a>
+<a class="phone" href="tel:+33652551589">📞 Appeler</a>
+<a class="email" href="mailto:fililegalo@gmail.com">✉️ Email</a>
+<a class="whatsapp" href="https://wa.me/33652551589">💬 WhatsApp</a>
 </div>
 
 <h2>Envoyer un message</h2>
 <div class="form-box">
-<form id="form" action="mailto:fililegalo@gmail.com" method="post" enctype="text/plain">
-    <input type="text" name="Nom" placeholder="Nom" required>
-    <input type="email" name="Email" placeholder="Email" required>
-    <input type="tel" name="Téléphone" placeholder="Téléphone" required>
-    <textarea name="Message" placeholder="Votre demande..." required></textarea>
-    <button type="submit">Envoyer un message</button>
+
+<form action="https://formspree.io/f/YOUR_ID" method="POST">
+<input type="text" name="name" placeholder="Nom" required>
+<input type="email" name="email" placeholder="Email" required>
+<textarea name="message" placeholder="Votre demande..." required></textarea>
+<button type="submit">Envoyer</button>
 </form>
+
+</div>
+
+<h2>Avis clients</h2>
+<div class="services">
+<div class="card">⭐⭐⭐⭐⭐<p>Très professionnel et rapide</p></div>
+<div class="card">⭐⭐⭐⭐⭐<p>Travail impeccable</p></div>
+<div class="card">⭐⭐⭐⭐⭐<p>Je recommande fortement</p></div>
+</div>
+
+<h2>Zone d’intervention</h2>
+<div style="max-width:900px;margin:40px auto;">
+<iframe 
+src="https://www.google.com/maps?q=451 chemin des Plaines 06370 Mouans-Sartoux France&output=embed"
+width="100%" height="300" style="border:0;border-radius:12px;">
+</iframe>
 </div>
 
 </div>
+
+<a class="float" href="https://wa.me/33652551589">💬</a>
 
 <footer>
-<p>© 2026 Filip Le Galo - Tous droits réservés</p>
+<p>© 2026 Filip Le Galo</p>
 </footer>
 
 <script>
-document.getElementById("form").addEventListener("submit", function(e){
-    alert("Merci ! Votre message a été envoyé. Vous serez recontacté rapidement.");
-});
+function setLang(lang){
+if(lang==='en'){
+document.getElementById("subtitle").innerText="Electricity • Air Conditioning • Repair";
+}else{
+document.getElementById("subtitle").innerText="Électricité • Climatisation • Dépannage";
+}}
 </script>
+
 </body>
+</html>
 </html>
